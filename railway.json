@@ -5,7 +5,7 @@
         "buildCommand": "composer install --no-dev --optimize-autoloader && npm install && npm run build"
     },
     "deploy": {
-        "startCommand": "echo 'Starting Deployment...' && (touch database/database.sqlite || echo 'Touch Failed') && (chmod 777 database/database.sqlite || echo 'Chmod Failed') && echo 'Migrating...' && (php artisan migrate --force -v || echo 'Migrate Failed') && echo 'Starting Server...' && php artisan serve --host=0.0.0.0 --port=$PORT",
+        "startCommand": "sh -c 'echo PRE-START; touch database/database.sqlite; chmod 777 database/database.sqlite; echo MIGRATING; php artisan migrate --force; echo STARTING; php artisan serve --host=0.0.0.0 --port=$PORT'",
         "restartPolicyType": "ON_FAILURE",
         "restartPolicyMaxRetries": 10
     }
