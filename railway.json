@@ -5,7 +5,7 @@
         "buildCommand": "composer install --no-dev --optimize-autoloader && npm install && npm run build"
     },
     "deploy": {
-        "startCommand": "sh -c 'echo PRE-START; touch database/database.sqlite; chmod 777 database/database.sqlite; echo MIGRATING; php artisan migrate --force; echo STARTING; php artisan serve --host=0.0.0.0 --port=$PORT'",
+        "startCommand": "sh -c 'export APP_KEY=base64:ghM26+hynF4w591PuD9QzWoXiu659HAQ+JR91xi5HPc=; echo PRE-START; touch database/database.sqlite; chmod 777 database/database.sqlite; echo MIGRATING; php artisan migrate --force; echo STARTING; php artisan serve --host=0.0.0.0 --port=$PORT'",
         "restartPolicyType": "ON_FAILURE",
         "restartPolicyMaxRetries": 10
     }
