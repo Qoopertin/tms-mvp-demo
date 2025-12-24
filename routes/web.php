@@ -7,6 +7,11 @@ use App\Http\Controllers\DriverController;
 use App\Http\Controllers\DispatchController;
 use App\Http\Controllers\DocumentController;
 
+// Health check (no auth required)
+Route::get('/health', function () {
+    return response('ok', 200)->header('Content-Type', 'text/plain');
+});
+
 // Authentication routes
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
